@@ -1110,6 +1110,11 @@
   // init chart
   renderChart(20);
 
+  // ── Validation helpers ────────────────────────────────────────────────────
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
   // ── Step 3: Name suggestion ────────────────────────────────────────────────
   function onSuggestInput(val) {
     const hint = document.getElementById('name-hint');
@@ -1130,8 +1135,10 @@
     const phone   = document.getElementById('f-phone').value.trim();
     const suggest = document.getElementById('f-suggest').value.trim();
 
+    // Validation
     if (!name) return alert('שם הוא חובה');
     if (!email && !phone) return alert('צריך להוסיף מייל או טלפון לפחות');
+    if (email && !isValidEmail(email)) return alert('פורמט מייל לא תקין');
 
     const btn = document.getElementById('btn-submit');
     const txt = document.getElementById('btn-submit-text');
