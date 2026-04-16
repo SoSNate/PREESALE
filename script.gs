@@ -6,10 +6,12 @@ function doPost(e) {
     var data = JSON.parse(e.postData.contents);
 
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['תאריך', 'שם', 'אימייל', 'טלפון', 'הצעה לשם']);
+      sheet.appendRow(['#', 'תאריך', 'שם', 'אימייל', 'טלפון', 'הצעה לשם']);
     }
 
+    var rowNum = sheet.getLastRow();
     sheet.appendRow([
+      rowNum,
       new Date().toLocaleString('he-IL'),
       data.name || '',
       data.email || '',
