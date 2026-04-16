@@ -3,7 +3,7 @@ function doPost(e) {
     var ss = SpreadsheetApp.openById('1Pl4hGiPqQXz_15hEXpSGwbAg-IIYHvvLqmwpBe5zx6Q');
     var sheet = ss.getSheetByName('לידים') || ss.getSheets()[0];
 
-    var data = JSON.parse(e.parameter.data);
+    var data = JSON.parse(e.postData.contents);
 
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(['#', 'תאריך', 'שם', 'אימייל', 'טלפון', 'הצעה לשם']);
