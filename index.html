@@ -1159,16 +1159,20 @@
 
     const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbxpSo6e9yBs6SHWhrSiVK5TTkQM88x9T6A4nopYh5Z3s4KKsC2zzC0t3Ov-M789witK7w/exec";
 
+    const payload = {
+      name: name,
+      email: email,
+      phone: phone,
+      platformName: suggest || '(לא הוצע שם)'
+    };
+
+    console.log('Sending payload:', payload);
+
     fetch(GOOGLE_APP_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        phone: phone,
-        platformName: suggest || '(לא הוצע שם)'
-      })
+      body: JSON.stringify(payload)
     })
     .then(() => {
       // מעבר למסך ההצלחה
