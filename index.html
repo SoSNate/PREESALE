@@ -1168,14 +1168,15 @@
 
     console.log('Sending payload:', payload);
 
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(payload));
+
     fetch(GOOGLE_APP_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(payload)
+      mode: 'no-cors',
+      body: formData
     })
-    .then(res => res.json())
-    .then(data => {
-      if (!data.success) throw new Error(data.error || 'שגיאה לא ידועה');
+    .then(() => {
 
       // מעבר למסך ההצלחה
       document.getElementById('step-3').classList.add('hidden');
