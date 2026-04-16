@@ -15,7 +15,7 @@ function doPost(e) {
       new Date().toLocaleString('he-IL'),
       data.name || '',
       data.email || '',
-      data.phone || '',
+      data.phone ? '\'' + data.phone : '',
       data.platformName || ''
     ]);
 
