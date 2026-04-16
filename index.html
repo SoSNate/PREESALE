@@ -1146,6 +1146,9 @@
     const phone   = document.getElementById('f-phone').value.trim();
     const suggest = document.getElementById('f-suggest').value.trim();
 
+    console.log('Form data:', {name, email, phone, suggest});
+    alert(`שם: ${name}\nמייל: ${email}\nטלפון: ${phone}\nשם הפלטפורמה: ${suggest}`);
+
     // Validation
     if (!name) return alert('שם הוא חובה');
     if (!email && !phone) return alert('צריך להוסיף מייל או טלפון לפחות');
