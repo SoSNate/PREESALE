@@ -1,6 +1,6 @@
 function doPost(e) {
   try {
-    var sheet = SpreadsheetApp.openById('1MUaapl9YkTjNHvdldM87SLWp_tjwYB7UmJAp5HIvEQs').getSheetByName('Submissions');
+    var sheet = SpreadsheetApp.openById('1Pl4hGiPqQXz_15hEXpSGwbAg-IIYHvvLqmwpBe5zx6Q').getSheetByName('לידים');
     var data = JSON.parse(e.postData.contents);
 
     var name = data.name ? data.name.trim() : '';
